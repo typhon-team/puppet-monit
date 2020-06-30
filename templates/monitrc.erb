@@ -25,6 +25,12 @@ set alert <%= email %>
 set eventqueue
     basedir /var/lib/monit/events
     slots 100
+<%- if @httpd_socket == true and @httpd == false -%>
+  set httpd unixsocket /var/run/monit.sock
+  <%- if !@httpd_user.empty? && !@httpd_password.empty? -%>
+  allow <%= @httpd_user %>:<%= @httpd_password %>
+  <%- end -%>
+<%- end -%>
 <%- if @httpd == true -%>
 set httpd port <%= @httpd_port %> and
    use address <%= @httpd_address %>
