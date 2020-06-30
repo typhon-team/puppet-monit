@@ -5,6 +5,7 @@ class monit::params {
   $check_interval            = 120
   $config_dir_purge          = false
   $httpd                     = false
+  $httpd_socket              = false
   $httpd_port                = 2812
   $httpd_address             = 'localhost'
   $httpd_allow               = '0.0.0.0/0.0.0.0'

@@ -3,6 +3,7 @@
 class monit (
   $check_interval            = $monit::params::check_interval,
   $httpd                     = $monit::params::httpd,
+  $httpd_socket              = $monit::params::httpd_socket,
   $httpd_port                = $monit::params::httpd_port,
   $httpd_address             = $monit::params::httpd_address,
   $httpd_allow               = $monit::params::httpd_allow,
@@ -77,6 +78,7 @@ class monit (
   # <variable validations>
   validate_integer($check_interval, '', 0)
   validate_bool($httpd_bool)
+  validate_bool($httpd_socket)
   validate_integer($httpd_port, 65535, 0)
   validate_string($httpd_address)
   validate_string($httpd_allow)
